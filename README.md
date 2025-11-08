@@ -21,11 +21,10 @@ All data is fetched from the free **Jikan API**, which requires no authenticatio
 
 - **React 18+**
 - **TypeScript**
-- **React Hooks** (no class components)
+- **React Hooks** 
 - **react-router-dom** for navigation
 - **Redux** for state management
-- **UI library:** (Your chosen UI library)
-- **Single Page App (SPA)** — no Next.js
+- **UI library:** ANT Design and Tailwind CSS
 
 ---
 
@@ -42,6 +41,13 @@ The search bar updates results in real-time without pressing Enter or a button:
 - Debounce API calls at **250ms** intervals  
 - Cancel in-flight requests if typing continues  
 - Keeps the UI responsive and prevents API spam  
+
+### 🔍 Bonus
+
+- Skeleton loaders or meaningful loading states
+- Empty state and no results handling with helpful messaging
+- Error handling with toast message
+-  
 
 ---
 
