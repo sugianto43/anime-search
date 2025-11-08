@@ -44,7 +44,7 @@ The search bar updates results in real-time without pressing Enter or a button:
 
 ### 🔍 Bonus
 
-- Skeleton loaders or meaningful loading states
+- Skeleton loaders and meaningful loading states
 - Empty state and no results handling with helpful messaging
 - Error handling with toast message
 -  
