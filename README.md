@@ -8,8 +8,9 @@ A mini-project built to demonstrate React proficiency. This application allows u
 
 This project is a **two-page React application**:
 
-- **Page 1:** Search page displaying anime results  
-- **Page 2:** Detail page for a selected anime  
+- **Page 1:** Home Page 
+- **Page 2:** Search page displaying anime results  
+- **Page 3:** Detail page for a selected anime  
 
 All data is fetched from the free **Jikan API**, which requires no authentication.
 
