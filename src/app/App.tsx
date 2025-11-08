@@ -1,5 +1,12 @@
+import Provider from './Provider';
+import Router from './Router';
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <Provider>
+      <Router />
+    </Provider>
+  );
 };
 
 export default App;
