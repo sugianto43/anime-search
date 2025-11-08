@@ -1,6 +1,6 @@
 import Card from './Card';
 import type { Anime } from '../app/api/types/AnimeItems';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { PaginationPlus } from '../app/api/types/PaginationPlus';
 import { Pagination } from 'antd';
 
@@ -13,6 +13,7 @@ type AnimeListProps = {
 const loaderData = Array.from({ length: 12 }, (_, i) => i + 1);
 
 const AnimeList = ({ data, isLoading, pagination }: AnimeListProps) => {
+  const navigate = useNavigate();
   const [URLSearchParams, SetURLSearchParams] = useSearchParams();
   const q = URLSearchParams.get('q') || '';
 
@@ -37,6 +38,7 @@ const AnimeList = ({ data, isLoading, pagination }: AnimeListProps) => {
                 name={item.title ?? 'No Title'}
                 thumbnail={item.images?.webp?.large_image_url ?? ''}
                 type={item.type ?? 'No Type'}
+                onClick={() => navigate(`/detail/${item.mal_id}`)}
               />
             ))}
           </div>

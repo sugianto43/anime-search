@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 🎌 Anime Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini-project built to demonstrate React proficiency. This application allows users to search for anime titles and view detailed information using the [Jikan API](https://docs.api.jikan.moe/).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Overview
 
-## React Compiler
+This project is a **two-page React application**:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Page 1:** Search page displaying anime results  
+- **Page 2:** Detail page for a selected anime  
 
-## Expanding the ESLint configuration
+All data is fetched from the free **Jikan API**, which requires no authentication.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Technical Requirements
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🧩 Core Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React 18+**
+- **TypeScript**
+- **React Hooks** (no class components)
+- **react-router-dom** for navigation
+- **Redux** for state management
+- **UI library:** (Your chosen UI library)
+- **Single Page App (SPA)** — no Next.js
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Functionality
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Server-side pagination** on the search page  
+- **Instant search** with debouncing  
+- **Redux** for centralized state management  
+
+### 🔍 Instant Search Details
+
+The search bar updates results in real-time without pressing Enter or a button:
+
+- Debounce API calls at **250ms** intervals  
+- Cancel in-flight requests if typing continues  
+- Keeps the UI responsive and prevents API spam  
+
+---
+
+## 🧑‍💻 Setup & Installation
+
+> ⚠️ **You must use `npm` only.** Other package managers (yarn, pnpm, etc.) are not allowed.
+
+Clone the repository and run:
+
+```bash
+npm install
+npm run dev

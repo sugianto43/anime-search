@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { Input, Layout } from 'antd';
-import { useGetAnimeByIdQuery, useSearchAnimeQuery } from '../../api/animeApi';
+import { useSearchAnimeQuery } from '../../api/animeApi';
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDebounce } from '../../../hooks/useDebounce';
@@ -17,9 +17,7 @@ const SearchPage = () => {
       skip: false,
     },
   );
-  const numericId = 20;
-  const { data: detail } = useGetAnimeByIdQuery(numericId, { skip: !numericId });
-  console.log('detail', detail);
+
   const searchResults = useMemo(() => data?.data || [], [data]);
   const pagination = useMemo(() => data?.pagination, [data]);
   return (

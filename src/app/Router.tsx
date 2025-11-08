@@ -4,6 +4,7 @@ import { lazy } from 'react';
 
 const HomePage = lazy(() => import('./features/home'));
 const SearchPage = lazy(() => import('./features/search'));
+const DetailPage = lazy(() => import('./features/detail'));
 
 const Router = () => {
   const routes = useRoutes([
@@ -18,6 +19,10 @@ const Router = () => {
         {
           path: '/search',
           element: <SearchPage />,
+        },
+        {
+          path: '/detail/:id',
+          element: <DetailPage />,
         },
       ],
     },

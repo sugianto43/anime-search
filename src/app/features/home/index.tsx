@@ -1,9 +1,13 @@
-import { Carousel, Spin } from 'antd';
+import { Carousel } from 'antd';
 import { useGetTopAnimeQuery } from '../../api/animeApi';
 import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import Loader from '../../../components/Loader';
 
 const HomePage = () => {
-  const { data, isLoading } = useGetTopAnimeQuery({});
+  const { data, isLoading, error } = useGetTopAnimeQuery({});
+  console.log('error', error);
+
   const topAnime = useMemo(
     () =>
       data?.data?.map((item) => ({
@@ -16,20 +20,18 @@ const HomePage = () => {
   );
 
   if (isLoading) {
-    return (
-      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center">
-        <Spin size="large" />
-      </div>
-    );
+    return <Loader />;
   }
   return (
-    <Carousel autoplay>
+    <Carousel autoplay draggable>
       {topAnime.map((item, index) => (
-        <div className="relative" key={item.id}>
+        <div className="relative cursor-pointer" key={item.id}>
           <div className="absolute w-full h-full bg-black opacity-40 z-0"></div>
           <div className="absolute flex flex-col gap-4 z-10 text-white p-10 w-1/2 top-1/2 -translate-y-1/2">
             <h4 className="text-[#FAFF02] text-4xl font-semibold">{`#${index + 1} SPOTLIGHT`}</h4>
-            <h2 className="text-white text-6xl font-bold">{item.title}</h2>
+            <Link to={`/detail/${item.id}`}>
+              <h2 className="text-white text-6xl font-bold hover:underline">{item.title}</h2>
+            </Link>
             <p className="text-xl font-light line-clamp-4 max-w-full">{item.synopsis}</p>
           </div>
           <img
